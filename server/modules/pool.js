@@ -19,10 +19,6 @@ if (process.env.DATABASE_URL) {
 // also running on our computer (localhost)
 else {
     let databaseName = 'prime_feedback'
-    
-    if (process.env.NODE_ENV === 'test') {
-      databaseName = 'prime_testing'
-    }
 
     pool = new pg.Pool({
         host: 'localhost',
