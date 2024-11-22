@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Understanding() {
+  const [understandingInput, setUnderstandingInput] = useState("");
 
-    const [understandingInput, setUnderstandingInput] = useState('');
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const history = useHistory();
 
-    const history = useHistory()
+  const submitUnderstanding = (e) => {
+    e.preventDefault();
 
-    const submitUnderstanding = (e) => {
-        e.preventDefault()
+    dispatch({
+      type: "SET_UNDERSTANDING",
+      payload: understandingInput,
+    });
 
-        dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: understandingInput
-        })
-
-        history.push("/support")
-
-    }
+    history.push("/support");
+  };
 
   return (
     <div>
