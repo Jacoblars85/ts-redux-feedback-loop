@@ -1,7 +1,26 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 
 function Support() {
+
+    const [supportInput, setSupportInput] = useState('');
+
+    const dispatch = useDispatch()
+
+    const history = useHistory()
+
+    const submitSupport = (e) => {
+        e.preventDefault()
+
+        dispatch({
+            type: 'SET_SUPPORT',
+            payload: supportInput
+        })
+
+        history.push("/comments")
+
+    }
 
   return (
     <div>
