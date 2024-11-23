@@ -1,45 +1,41 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Support() {
+  const [supportInput, setSupportInput] = useState("");
 
-    const [supportInput, setSupportInput] = useState('');
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const history = useHistory();
 
-    const history = useHistory()
+  const submitSupport = (e) => {
+    e.preventDefault();
 
-    const submitSupport = (e) => {
-        e.preventDefault()
+    dispatch({
+      type: "SET_SUPPORT",
+      payload: supportInput,
+    });
 
-        dispatch({
-            type: 'SET_SUPPORT',
-            payload: supportInput
-        })
-
-        history.push("/comments")
-
-    }
+    history.push("/comments");
+  };
 
   return (
     <div>
+      <h1>How well are you being supported?</h1>
 
-<h1>How well are you being supported?</h1>
+      <p>Support?</p>
 
-<p>Support?</p>
+      <form onSubmit={submitSupport}>
+        <input
+          onChange={(e) => setSupportInput(e.target.value)}
+          value={supportInput}
+          type="text"
+          placeholder="1-5"
+        />
 
-<form onSubmit={submitSupport}>
-
-    <input
-        onChange={(e) => setSupportInput(e.target.value)}
-        value={supportInput}
-        type='text'
-        placeholder='1-5' />
-
-    <button>Next</button>
-
-</form>
+        <button>Next</button>
+      </form>
     </div>
   );
 }
