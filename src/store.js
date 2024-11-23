@@ -32,12 +32,23 @@ const support = (state = "", action) => {
     return state;
 }
 
+const comments = (state = "", action) => {
+    if (action.type === 'SET_COMMENTS') {
+        return action.payload
+    }
+    if (action.type === 'CLEAR_REDUCERS') {
+        return ""
+    }
+    return state;
+}
+
 
 const store = createStore(
     combineReducers({
         feeling,
         understanding,
         support,
+        comments,
     }),
     applyMiddleware(logger),
 );
