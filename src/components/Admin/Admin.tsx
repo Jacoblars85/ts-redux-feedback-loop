@@ -30,7 +30,32 @@ function Admin() {
 
   return (
     <div>
+       <div className='boxAdmin'>
+            <h1>Feedback Results!</h1>
+            </div>
 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feeling</th>
+                        <th>Comprehension</th>
+                        <th>Support</th>
+                        <th>Comments</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {feedback.map((feed: any) => {
+                        return (
+                            <AdminDelete key={feed.id} feed={feed} getFeedback={getFeedback} />
+                        )
+                    })}
+                </tbody>
+                <tfoot>
+                <tr className='footerTable'></tr>
+                </tfoot>
+            </table>
     </div>
   );
 }
