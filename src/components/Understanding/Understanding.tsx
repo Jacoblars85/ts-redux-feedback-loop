@@ -9,7 +9,7 @@ function Understanding() {
 
   const history = useHistory();
 
-  const submitUnderstanding = (e) => {
+  const submitUnderstanding = (e: any) => {
     e.preventDefault();
 
     dispatch({

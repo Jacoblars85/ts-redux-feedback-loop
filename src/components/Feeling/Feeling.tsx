@@ -9,7 +9,7 @@ function Feeling() {
 
   const history = useHistory();
 
-  const submitFeelings = (e) => {
+  const submitFeelings = (e: any) => {
     e.preventDefault();
 
     dispatch({

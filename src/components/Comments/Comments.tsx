@@ -9,7 +9,7 @@ function Comments() {
 
   const history = useHistory();
 
-  const submitComments = (e) => {
+  const submitComments = (e: any) => {
     e.preventDefault();
 
     dispatch({

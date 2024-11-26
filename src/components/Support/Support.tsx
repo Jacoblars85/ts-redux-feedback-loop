@@ -9,7 +9,7 @@ function Support() {
 
   const history = useHistory();
 
-  const submitSupport = (e) => {
+  const submitSupport = (e: any) => {
     e.preventDefault();
 
     dispatch({
