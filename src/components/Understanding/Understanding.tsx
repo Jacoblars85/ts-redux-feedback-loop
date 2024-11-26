@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Understanding() {
-  const [understandingInput, setUnderstandingInput] = useState("");
+  const [understandingInput, setUnderstandingInput] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ function Understanding() {
         <input
           onChange={(e) => setUnderstandingInput(e.target.value)}
           value={understandingInput}
-          type="text"
+          type="number"
           placeholder="1-5"
         />
 
