@@ -16,7 +16,7 @@ function Review() {
   const postFeedback = () => {
     axios({
       method: "POST",
-      url: "/feedback",
+      url: "/api/feedback",
       data: {
         feeling: feeling,
         understanding: understanding,
