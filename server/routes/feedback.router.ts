@@ -4,7 +4,7 @@ const pool = require('../modules/pool')
 
 
 // TODO: This route adds a new feedback entry
-router.post('/', (req, res) => {
+router.post('/', (req: any, res: any) => {
     const sqlQueryText = `
      INSERT INTO "feedback"
           ("feeling", "understanding", "support", "comments")
@@ -14,10 +14,10 @@ router.post('/', (req, res) => {
     const sqlValues = [req.body.feeling, req.body.understanding, req.body.support, req.body.comments];
 
     pool.query(sqlQueryText, sqlValues)
-        .then((result) => {
+        .then((result: any) => {
             res.sendStatus(201);
             console.log('POST successful');
-        }).catch((err) => {
+        }).catch((err: any) => {
             console.log('error posting things', err);
             res.sendStatus(500);
         })
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 
 // DO NOT EDIT THIS ROUTE
 // This route must return all feedback.
-router.get('/', (req, res) => {
+router.get('/', (req: any, res: any) => {
     console.log('testing')
     const sqlText = `SELECT * FROM "feedback" ORDER BY "id"`;
     pool.query(sqlText).then(result => {
