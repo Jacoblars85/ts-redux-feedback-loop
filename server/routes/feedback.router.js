@@ -3,6 +3,16 @@ var router = express.Router();
 var pool = require('../modules/pool');
 // TODO: This route adds a new feedback entry
 router.post('/', function (req, res) {
+    var sqlQueryText = "\n     INSERT INTO \"feedback\"\n          (\"feeling\", \"understanding\", \"support\", \"comments\")\n          VALUES\n          ($1, $2, $3, $4);\n    ";
+    var sqlValues = [req.body.feeling, req.body.understanding, req.body.support, req.body.comments];
+    pool.query(sqlQueryText, sqlValues)
+        .then(function (result) {
+        res.sendStatus(201);
+        console.log('POST successful');
+    }).catch(function (err) {
+        console.log('error posting things', err);
+        res.sendStatus(500);
+    });
 });
 // DO NOT EDIT THIS ROUTE
 // This route must return all feedback.
