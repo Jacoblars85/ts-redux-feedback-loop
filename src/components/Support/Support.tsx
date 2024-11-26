@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Support() {
-  const [supportInput, setSupportInput] = useState("");
+  const [supportInput, setSupportInput] = useState();
 
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ function Support() {
         <input
           onChange={(e) => setSupportInput(e.target.value)}
           value={supportInput}
-          type="text"
+          type="number"
           placeholder="1-5"
         />
 
