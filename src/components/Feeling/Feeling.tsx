@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 function Feeling() {
-  const [feelingInput, setFeelingInput] = useState("");
+  const [feelingInput, setFeelingInput] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ function Feeling() {
         <input
           onChange={(e) => setFeelingInput(e.target.value)}
           value={feelingInput}
-          type="text"
+          type="number"
           placeholder="1-5"
         />
 
