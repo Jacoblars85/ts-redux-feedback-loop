@@ -46,15 +46,16 @@ function Admin() {
         </thead>
 
         <tbody>
-          {feedback && feedback.map((feed: any) => {
-            return (
-              <AdminDelete
-                key={feed.id}
-                feed={feed}
-                getFeedback={getFeedback}
-              />
-            );
-          })}
+          {feedback &&
+            feedback.map((feed: any) => {
+              return (
+                <AdminDelete
+                  key={feed.id}
+                  feed={feed}
+                  getFeedback={getFeedback}
+                />
+              );
+            })}
         </tbody>
         <tfoot>
           <tr className="footerTable"></tr>
