@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
 
 function AdminDelete({ feed, getFeedback }) {
+
+    const deleteFeedback = () => {
+        console.log('in delete route');
+
+        axios({
+            url: `/feedback/${feed.id}`,
+            method: 'DELETE'
+        }).then((response) => {
+            getFeedback()
+        }).catch((error) => {
+            console.log(error, 'Error in deleting feedback');
+        })
+    }
 
   return (
     <div>
