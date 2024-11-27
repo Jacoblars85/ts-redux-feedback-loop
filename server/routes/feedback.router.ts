@@ -25,9 +25,6 @@ router.post('/', (req: any, res: any) => {
 
 //Delete route
 router.delete('/:id', (req, res) => {
-    console.log('in the delete route');
-
-
     const sqlQueryText = `
     DELETE FROM "feedback"
         WHERE "id" = $1;
