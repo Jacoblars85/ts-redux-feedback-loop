@@ -14,10 +14,23 @@ router.post('/', function (req, res) {
         res.sendStatus(500);
     });
 });
+//Delete route
+router.delete('/:id', function (req, res) {
+    console.log('in the delete route');
+    var sqlQueryText = "\n    DELETE FROM \"feedback\"\n        WHERE \"id\" = $1;\n  ";
+    var sqlValues = [req.params.id];
+    pool.query(sqlQueryText, sqlValues)
+        .then(function (result) {
+        res.sendStatus(200);
+    })
+        .catch(function (err) {
+        console.log("DELETE /feedback SQL query failed: ", err);
+        res.sendStatus(500);
+    });
+});
 // DO NOT EDIT THIS ROUTE
 // This route must return all feedback.
 router.get('/', function (req, res) {
-    console.log('testing');
     var sqlText = "SELECT * FROM \"feedback\" ORDER BY \"id\"";
     pool.query(sqlText).then(function (result) {
         res.send(result.rows);
