@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 function AdminDelete({ feed, getFeedback }) {
 
     const deleteFeedback = () => {
-        console.log('in delete route');
-
         axios({
             url: `/api/feedback/${feed.id}`,
             method: 'DELETE'
