@@ -46,7 +46,7 @@ function Admin() {
         </thead>
 
         <tbody>
-          {feedback.map((feed: any) => {
+          {feedback && feedback.map((feed: any) => {
             return (
               <AdminDelete
                 key={feed.id}
