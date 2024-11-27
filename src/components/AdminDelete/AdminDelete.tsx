@@ -8,7 +8,7 @@ function AdminDelete({ feed, getFeedback }) {
         console.log('in delete route');
 
         axios({
-            url: `/feedback/${feed.id}`,
+            url: `/api/feedback/${feed.id}`,
             method: 'DELETE'
         }).then((response) => {
             getFeedback()
@@ -18,7 +18,7 @@ function AdminDelete({ feed, getFeedback }) {
     }
 
   return (
-    <div>
+    <>
 <tr>
             <td>{feed.feeling}</td>
             <td>{feed.understanding}</td>
@@ -28,7 +28,7 @@ function AdminDelete({ feed, getFeedback }) {
                 <button onClick={deleteFeedback}>delete</button>
             </td>
         </tr>
-    </div>
+    </>
   );
 }
 
