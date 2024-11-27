@@ -16,7 +16,6 @@ router.post('/', function (req, res) {
 });
 //Delete route
 router.delete('/:id', function (req, res) {
-    console.log('in the delete route');
     var sqlQueryText = "\n    DELETE FROM \"feedback\"\n        WHERE \"id\" = $1;\n  ";
     var sqlValues = [req.params.id];
     pool.query(sqlQueryText, sqlValues)
