@@ -47,7 +47,6 @@ router.delete('/:id', (req, res) => {
 // DO NOT EDIT THIS ROUTE
 // This route must return all feedback.
 router.get('/', (req: any, res: any) => {
-    console.log('testing')
     const sqlText = `SELECT * FROM "feedback" ORDER BY "id"`;
     pool.query(sqlText).then(result => {
         res.send(result.rows)
