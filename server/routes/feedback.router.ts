@@ -24,7 +24,7 @@ router.post('/', (req: any, res: any) => {
 })
 
 //Delete route
-router.delete('/:id', (req, res) => {
+router.delete('/:id', (req: any, res: any) => {
     const sqlQueryText = `
     DELETE FROM "feedback"
         WHERE "id" = $1;
@@ -32,10 +32,10 @@ router.delete('/:id', (req, res) => {
   const sqlValues = [req.params.id]
  
   pool.query(sqlQueryText, sqlValues)
-    .then((result) => {
+    .then((result: any) => {
       res.sendStatus(200)
     })
-    .catch((err) => {
+    .catch((err: any) => {
       console.log(`DELETE /feedback SQL query failed: `, err)
       res.sendStatus(500)
     })
@@ -45,9 +45,9 @@ router.delete('/:id', (req, res) => {
 // This route must return all feedback.
 router.get('/', (req: any, res: any) => {
     const sqlText = `SELECT * FROM "feedback" ORDER BY "id"`;
-    pool.query(sqlText).then(result => {
+    pool.query(sqlText).then((result: any) => {
         res.send(result.rows)
-    }).catch(err => {
+    }).catch((err: any) => {
         console.log(err);
         res.sendStatus(500);
     })
